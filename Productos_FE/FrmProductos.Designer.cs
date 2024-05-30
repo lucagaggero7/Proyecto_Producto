@@ -73,7 +73,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(51, 91);
+            this.label2.Location = new System.Drawing.Point(51, 80);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 1;
@@ -139,7 +139,7 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(130, 88);
+            this.txtDescripcion.Location = new System.Drawing.Point(130, 77);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(161, 20);
             this.txtDescripcion.TabIndex = 5;
@@ -203,9 +203,9 @@
             this.lblStockMov.AutoSize = true;
             this.lblStockMov.Location = new System.Drawing.Point(139, 83);
             this.lblStockMov.Name = "lblStockMov";
-            this.lblStockMov.Size = new System.Drawing.Size(64, 13);
+            this.lblStockMov.Size = new System.Drawing.Size(68, 13);
             this.lblStockMov.TabIndex = 7;
-            this.lblStockMov.Text = "Stocl Actual";
+            this.lblStockMov.Text = "Stock Actual";
             // 
             // btnAceptar
             // 
