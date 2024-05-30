@@ -75,6 +75,11 @@ namespace Entidades
                 if (txtId == (row["Codigo"].ToString()))
                 {
                     row["Stock"] = Convert.ToInt32(row["Stock"]) - Convert.ToInt32(txtCant);
+                    if (Convert.ToInt32(row["Stock"]) <= 0)
+                    {
+                        row["Stock"] = 0;
+                    }
+
                     ListaDT.WriteXml("Productos.xml");
                 }
             }
