@@ -34,6 +34,8 @@
             this.btnCargar = new System.Windows.Forms.Button();
             this.tabProductos = new System.Windows.Forms.TabControl();
             this.CargaProductos = new System.Windows.Forms.TabPage();
+            this.txtStockInicial = new System.Windows.Forms.TextBox();
+            this.lblStockInicial = new System.Windows.Forms.Label();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
@@ -53,12 +55,17 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.errorCodigo = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorDescripcion = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorStockInicial = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnBuscar1 = new System.Windows.Forms.Button();
+            this.errorCodigo1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tabProductos.SuspendLayout();
             this.CargaProductos.SuspendLayout();
             this.MovimientoProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorCodigo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorDescripcion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorStockInicial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorCodigo1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -102,6 +109,8 @@
             // CargaProductos
             // 
             this.CargaProductos.BackColor = System.Drawing.Color.Lavender;
+            this.CargaProductos.Controls.Add(this.txtStockInicial);
+            this.CargaProductos.Controls.Add(this.lblStockInicial);
             this.CargaProductos.Controls.Add(this.btnBorrar);
             this.CargaProductos.Controls.Add(this.btnBuscar);
             this.CargaProductos.Controls.Add(this.txtDescripcion);
@@ -116,6 +125,22 @@
             this.CargaProductos.TabIndex = 0;
             this.CargaProductos.Text = "Carga de Productos";
             this.CargaProductos.Click += new System.EventHandler(this.CargaProductos_Click);
+            // 
+            // txtStockInicial
+            // 
+            this.txtStockInicial.Location = new System.Drawing.Point(130, 117);
+            this.txtStockInicial.Name = "txtStockInicial";
+            this.txtStockInicial.Size = new System.Drawing.Size(161, 20);
+            this.txtStockInicial.TabIndex = 10;
+            // 
+            // lblStockInicial
+            // 
+            this.lblStockInicial.AutoSize = true;
+            this.lblStockInicial.Location = new System.Drawing.Point(51, 120);
+            this.lblStockInicial.Name = "lblStockInicial";
+            this.lblStockInicial.Size = new System.Drawing.Size(65, 13);
+            this.lblStockInicial.TabIndex = 9;
+            this.lblStockInicial.Text = "Stock Inicial";
             // 
             // btnBorrar
             // 
@@ -154,6 +179,7 @@
             // MovimientoProductos
             // 
             this.MovimientoProductos.BackColor = System.Drawing.Color.Lavender;
+            this.MovimientoProductos.Controls.Add(this.btnBuscar1);
             this.MovimientoProductos.Controls.Add(this.label4);
             this.MovimientoProductos.Controls.Add(this.label3);
             this.MovimientoProductos.Controls.Add(this.txtCodigo1);
@@ -196,7 +222,7 @@
             this.txtCodigo1.Name = "txtCodigo1";
             this.txtCodigo1.Size = new System.Drawing.Size(53, 20);
             this.txtCodigo1.TabIndex = 8;
-            this.txtCodigo1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtCodigo1.TextChanged += new System.EventHandler(this.txtCodigo1_TextChanged);
             // 
             // lblStockMov
             // 
@@ -299,6 +325,24 @@
             // 
             this.errorDescripcion.ContainerControl = this;
             // 
+            // errorStockInicial
+            // 
+            this.errorStockInicial.ContainerControl = this;
+            // 
+            // btnBuscar1
+            // 
+            this.btnBuscar1.Location = new System.Drawing.Point(377, 117);
+            this.btnBuscar1.Name = "btnBuscar1";
+            this.btnBuscar1.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar1.TabIndex = 11;
+            this.btnBuscar1.Text = "BUSCAR";
+            this.btnBuscar1.UseVisualStyleBackColor = true;
+            this.btnBuscar1.Click += new System.EventHandler(this.btnBuscar1_Click);
+            // 
+            // errorCodigo1
+            // 
+            this.errorCodigo1.ContainerControl = this;
+            // 
             // FrmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -320,6 +364,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorCodigo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorDescripcion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorStockInicial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorCodigo1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -350,6 +396,11 @@
         private System.Windows.Forms.TextBox txtCodigo1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblStockInicial;
+        private System.Windows.Forms.TextBox txtStockInicial;
+        private System.Windows.Forms.ErrorProvider errorStockInicial;
+        private System.Windows.Forms.Button btnBuscar1;
+        private System.Windows.Forms.ErrorProvider errorCodigo1;
     }
 }
 

@@ -50,11 +50,16 @@ namespace Entidades
 
         }
 
-        public Producto(int cod, string desc)
+        public Producto(int cod, string desc, int stockini)
         {
+            if (stockini == null || stockini == 0 || stockini < 0)
+            {
+                stockini = 0;   
+            }
+
             codigo = cod;
             descripcion = desc;
-            stock = 0;
+            stock = stockini;
         }
         #endregion
 

@@ -80,12 +80,46 @@ namespace Productos_FE
                 txtDescripcion.Focus();
                 return;
             }
+            ///////////////////////////////
+            if (txtStockInicial.Text != "" && txtStockInicial.Text != "Stock Inicial")
+            {
+                //borro el error 
+                errorStockInicial.SetError(txtStockInicial, "");
+            }
+            else
+            {
+                errorStockInicial.SetError(txtStockInicial, "Debe ingresar un Stock Inicial");
+                txtCodigo.Focus();
+                return;
+            }
 
-           
+            if (long.TryParse(txtStockInicial.Text, out Verificacion))
+            {
+                Valorverif = long.Parse(txtStockInicial.Text);
+                errorStockInicial.SetError(txtStockInicial, "");
+            }
+            else
+            {
+                errorStockInicial.SetError(txtStockInicial, "Ingrese un stock numerico");
+                return;
+            }
 
+            if(int.Parse(txtStockInicial.Text) >= 0)
+            {
+                errorStockInicial.SetError(txtStockInicial, "");
+            }
+            else
+            {
+                errorStockInicial.SetError(txtStockInicial, "El stock inicial minimo es cero");
+                return;
+            }
+            ///////////////////////////
+            //if (txtStockInicial.Text == "" || int.Parse(txtStockInicial.Text) == 0)
+            //{
+            //    txtStockInicial.Text = 0;
+            //}
 
-
-            Producto producto = new Producto(int.Parse(txtCodigo.Text), txtDescripcion.Text);
+            Producto producto = new Producto(int.Parse(txtCodigo.Text), txtDescripcion.Text, int.Parse(txtStockInicial.Text));
 
             existe = productos.ExisteProducto(txtCodigo.Text);
             if(existe)
@@ -107,6 +141,10 @@ namespace Productos_FE
 
             txtCodigo.Text = "";
             txtDescripcion.Text = "";
+            txtStockInicial.Text = "";
+
+            txtCodigo1.Text = "";
+            txtCantidad.Text = "";
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
@@ -132,6 +170,10 @@ namespace Productos_FE
                 lblStockMov.Text = productos.BuscarStock(txtCodigo1.Text).ToString() + " Unidades";
                 txtCodigo.Text = "";
                 txtDescripcion.Text = "";
+                txtStockInicial.Text = "";
+
+                txtCodigo1.Text = "";
+                txtCantidad.Text = "";
             }
             else
             {
@@ -176,23 +218,6 @@ namespace Productos_FE
             dataGridView1.ClearSelection();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            existe = productos.ExisteProducto(txtCodigo1.Text);
-            index = productos.BuscarProducto(txtCodigo1.Text);
-
-            if(existe)
-            {
-                lblDescripcionMov.Text = productos.BuscarDescripcion(txtCodigo1.Text);
-                lblStockMov.Text = productos.BuscarStock(txtCodigo1.Text).ToString() + " Unidades";
-            }
-            else
-            {
-                lblDescripcionMov.Text = "";
-                lblStockMov.Text = "";
-            }
-        }
-
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             existe = productos.ExisteProducto(txtCodigo1.Text);
@@ -225,10 +250,53 @@ namespace Productos_FE
 
             txtCodigo1.Text = "";
             txtCantidad.Text = "";
+            txtStockInicial.Text = "";
 
             dataGridView1.DataSource = productos.ListaDT;
             dataGridView1.ClearSelection();
             
+        }
+
+        private void txtCodigo1_TextChanged(object sender, EventArgs e)
+        {
+            existe = productos.ExisteProducto(txtCodigo1.Text);
+            index = productos.BuscarProducto(txtCodigo1.Text);
+
+            if (existe)
+            {
+                lblDescripcionMov.Text = productos.BuscarDescripcion(txtCodigo1.Text);
+                lblStockMov.Text = productos.BuscarStock(txtCodigo1.Text).ToString() + " Unidades";
+            }
+            else
+            {
+                lblDescripcionMov.Text = "";
+                lblStockMov.Text = "";
+            }
+        }
+
+        private void btnBuscar1_Click(object sender, EventArgs e)
+        {
+            if (txtCodigo1.Text == "")
+            {
+                errorCodigo1.SetError(txtCodigo1, "Ingrese un codigo");
+                return;
+            }
+            errorCodigo1.SetError(txtCodigo1, "");
+
+
+            existe = productos.ExisteProducto(txtCodigo1.Text);
+            index = productos.BuscarProducto(txtCodigo1.Text);
+
+            if (long.TryParse(txtCodigo1.Text, out Verificacion) && existe)
+            {
+                Valorverif = long.Parse(txtCodigo1.Text);
+                dataGridView1.Rows[index].Selected = true;
+            }
+            else
+            {
+                MessageBox.Show("El codigo no existe", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
     }
 }
