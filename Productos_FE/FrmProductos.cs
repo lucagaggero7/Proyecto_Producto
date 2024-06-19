@@ -128,7 +128,6 @@ namespace Productos_FE
                 return;
             }
            
-
             lblStockMov.Text = producto.p_stock.ToString() + " Unidades";
 
             productos.InsertProducto(producto);
