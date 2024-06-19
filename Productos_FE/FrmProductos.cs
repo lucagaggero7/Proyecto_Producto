@@ -80,7 +80,7 @@ namespace Productos_FE
                 txtDescripcion.Focus();
                 return;
             }
-            ///////////////////////////////
+           
             if (txtStockInicial.Text != "" && txtStockInicial.Text != "Stock Inicial")
             {
                 //borro el error 
